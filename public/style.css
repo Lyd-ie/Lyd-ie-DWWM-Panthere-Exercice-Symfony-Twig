@@ -1,0 +1,146 @@
+body { 
+    font-family: calibri;
+    font-size: 1.5em;
+    background-color: #FAF6F180
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    width: 100px;
+}
+h1 {
+    margin: 0;
+    color: #018298;
+}
+.red {
+    padding: 0 1%;
+    color: #F1E7DB;
+    background-color: #ED1017;
+    border-radius: 50px;
+}
+.teammate {
+    margin: 35px 15px;
+}
+.column {
+    width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF6F1;
+    border: solid 1px #BCA993;
+}
+.name-position {
+    margin: 0 auto;
+    text-align: center;
+}
+.name-position div {
+    color: #BCA993;
+    font-style: italic;
+    font-size: 0.8em;
+}
+.family {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 500px;
+    z-index: 1;
+}
+
+/* css du pauvre... */
+#teammate1, #teammate2 {
+    display: flex;
+    flex-direction: column;
+}
+#teammate1 {
+    width: 1400px;
+    margin: 0 auto;
+    position: relative
+}
+#teammate1 .column, #teammate2 .column {
+    margin: 0 auto
+}
+#teammate2 {
+    margin-left: 10px;
+}
+
+/* connecteurs du pauvre... */
+#teammate1:after, #teammate2:after, #teammate3:after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    border-top: 1px solid #BCA993;
+    border-left: 1px solid #BCA993;
+}
+#teammate1:after {
+    width: 700px;
+    height: 200px;
+    left: 407px;
+    top: 295px;
+}
+#teammate2:after {
+    width: 500px;
+    height: 200px;
+    left: 154px;
+    top: 515px;
+} 
+#teammate3:after {
+    height: 115px;
+    left: 700px;
+    top: 180px;
+}
+.cv {
+    color: #4B9AB0;
+    font-size: 2em;
+    font-weight: bold
+}
+.cv:hover {
+    color: #00879D;
+    cursor: pointer;
+}
+.card {
+    position: relative;
+    border: solid 2px #BCA993;
+    width: 800px;
+    padding: 35px 10px 10px;
+    background-color: #FAF6F1;
+    margin: 0 auto;
+    text-align: center
+}
+h2, p {
+    margin: 0 auto;
+}
+.photo {
+    width: 300px;
+    border: 2px solid #E5D2BC
+}
+.paper {
+    text-align: left;
+    margin: 30px;
+    padding: 15px 0 30px;
+    width: 500px;
+    background-image: url("../assets/papier.png");
+    background-size: cover
+}
+li {
+    margin-left: 30px;
+    list-style: none;
+    font-size: 0.9em;
+    line-height: 46px;
+}
+ul li::before {
+    content: "●";
+    color: #EC1017;
+    margin-right: 20px;
+}
+.post-it {
+    position: absolute;
+    bottom: 65px;
+    right: 35px;
+    box-sizing: border-box;
+    padding: 60px 40px;
+    width: 200px;
+    background-image: url("../assets/post-it.png");
+    background-size: cover;
+}

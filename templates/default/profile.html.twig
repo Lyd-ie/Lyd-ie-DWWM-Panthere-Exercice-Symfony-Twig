@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toto - {{ teammate.firstname }} {{ teammate.lastname }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="../style.css">
+{% endblock %}
+
+{% block body %}
+<style>
+    
+
+</style>
+
+    <div class="card">
+        <img class="photo" src="../assets/photos/{{ teammate.photo }}.jpg" alt="profile-picture">
+        <h2> {{ teammate.firstname }} {{ teammate.lastname }} </h2>
+        
+        <p> {% for position in teammate.positions %}
+            {{ position.label }}
+            {% endfor %}
+        </p>
+
+        <div class="paper">
+        <ul>
+            <li> {{ teammate.tel }} </li> 
+            <li> {{ teammate.mail }} </li> 
+            <li> {{ teammate.adresse }} 73000 Chambéry </li> 
+        </ul>
+        </div>
+
+        <div class="post-it">
+            <a class="cv" href="../assets/cv/{{ teammate.cv }}.pdf" download>CV</a>
+        </div>
+    </div>
+
+
+{% endblock %}

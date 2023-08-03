@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Toto - Organigramme {% endblock %}
+
+{% block body %}
+
+<div>
+    <h1><span class="red">O</span>rganigramme</h1>
+</div>
+
+{% for teammate in team %} {# en parcourant les lignes du tableau team #}
+    {% if teammate.superieur == null %} {# à la 1e ligne (teammate) dont superieur est null #}
+        {{ _self.organigramme(teammate) }} {# lance la macro "organigramme" depuis ce teammate #}
+    {% endif %}
+{% endfor %}
+
+{% macro organigramme(teammate) %} {# affiche la photo, nom complet et titre #}
+
+    <div id="teammate{{teammate.id}}" class="teammate">
+        <div class="column">
+            <a href="/profile/{{teammate.id}}"> <img src="assets/photos/{{ teammate.photo }}.jpg" alt="profile-picture">
+            
+            <div class="name-position">
+
+                {{ teammate.firstname }} {{ teammate.lastname }} </a>
+                <div>
+                    {% for position in teammate.positions %}
+                        ({{ position.label }})
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="family">
+        {% if teammate.child %}
+            {% for child in teammate.child %}
+               <div> {{ _self.organigramme(child) }} </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+
+    </div>
+{% endmacro %}
+
+{% endblock %}
