@@ -7,32 +7,32 @@
 {% endblock %}
 
 {% block body %}
-<style>
-    
 
-</style>
+    {# Cette page récupère les infos envoyée par profile() dans defaultController(),
+    à savoir la ligne du tableau team dont l'id correspond à celui passé en url #}
+
+    <a href="/default"><button class="bouton">Retour</button></a> {# bouton de retour à l'organigramme #}
 
     <div class="card">
-        <img class="photo" src="../assets/photos/{{ teammate.photo }}.jpg" alt="profile-picture">
-        <h2> {{ teammate.firstname }} {{ teammate.lastname }} </h2>
+        <img class="photo" src="../assets/photos/{{ teammate.photo }}.jpg" alt="profile-picture"> {# photo du teammate #}
+        <h2> {{ teammate.firstname }} {{ teammate.lastname }} </h2> {# nom et prénom #}
         
-        <p> {% for position in teammate.positions %}
-            {{ position.label }}
+        <p> {% for position in teammate.positions %} {# pour chaque profession rattachée au teammate dans le tableau lié "position" #}
+                {{ position.label }} {# affiche la profession #}
             {% endfor %}
         </p>
 
         <div class="paper">
-        <ul>
-            <li> {{ teammate.tel }} </li> 
-            <li> {{ teammate.mail }} </li> 
-            <li> {{ teammate.adresse }} 73000 Chambéry </li> 
-        </ul>
+            <ul>
+                <li> {{ teammate.tel }} </li> {# téléphone #}
+                <li> {{ teammate.mail }} </li> {# email #}
+                <li> {{ teammate.adresse }} 73000 Chambéry </li> {# adresse (rue, dans cet exemple ils habitent tous à Chambéry #}
+            </ul>
         </div>
 
         <div class="post-it">
-            <a class="cv" href="../assets/cv/{{ teammate.cv }}.pdf" download>CV</a>
+            <a class="cv" href="../assets/cv/{{ teammate.cv }}.pdf" download>CV</a> {# cv (en téléchargement) #}
         </div>
     </div>
-
 
 {% endblock %}

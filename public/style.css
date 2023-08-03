@@ -144,3 +144,18 @@ ul li::before {
     background-image: url("../assets/post-it.png");
     background-size: cover;
 }
+.bouton {
+    padding: 1%;
+    color: #FAF6F1;
+    background: #ED1017;
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.bouton:hover {
+    cursor: pointer;
+}

@@ -14,27 +14,30 @@
     {% endif %}
 {% endfor %}
 
-{% macro organigramme(teammate) %} {# affiche la photo, nom complet et titre #}
+{% macro organigramme(teammate) %} {# affiche la photo, nom complet et profession de chaque teammate #}
 
-    <div id="teammate{{teammate.id}}" class="teammate">
+    <div id="teammate{{teammate.id}}" class="teammate"> {# assigne un id personnel à chaque div de teammate #}
         <div class="column">
-            <a href="/profile/{{teammate.id}}"> <img src="assets/photos/{{ teammate.photo }}.jpg" alt="profile-picture">
+            
+            <a href="/profile/{{teammate.id}}"> {# lien vers le profil du teammate #}
+            <img src="assets/photos/{{ teammate.photo }}.jpg" alt="profile-picture"> {# photo du teammate #}
             
             <div class="name-position">
-
-                {{ teammate.firstname }} {{ teammate.lastname }} </a>
-                <div>
-                    {% for position in teammate.positions %}
-                        ({{ position.label }})
+                {{ teammate.firstname }} {{ teammate.lastname }} </a> {# prénom et nom du teammate #}
+                
+                <div> {# pour chaque profession rattachée au teammate dans le tableau lié "position" #}
+                    {% for position in teammate.positions %} 
+                        ({{ position.label }}) {# affiche la profession #}
                     {% endfor %}
                 </div>
             </div>
+
         </div>
 
         <div class="family">
-        {% if teammate.child %}
-            {% for child in teammate.child %}
-               <div> {{ _self.organigramme(child) }} </div>
+        {% if teammate.child %} {# si une relation supérieur/subordonné existe en base de donnée #}
+            {% for child in teammate.child %} {# pour chaque subordonné du teammate #}
+               <div> {{ _self.organigramme(child) }} </div> {# lance la macro organigramme sur ces subordonnés #}
             {% endfor %}
         {% endif %}
         </div>
